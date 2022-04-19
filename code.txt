@@ -1,0 +1,28 @@
+int pir1 = 6;
+int pir2 = 5;
+int count = 0;
+
+void setup()
+{
+  pinMode(pir1, INPUT);
+  pinMode(pir2, INPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  if(digitalRead(pir1)==HIGH){
+    delay(1000);
+    if(digitalRead(pir2)==HIGH){
+      count++;
+    }
+  }
+  else if(digitalRead(pir2)==HIGH){
+    delay(1000);
+    if(digitalRead(pir1)==HIGH){
+      count--;
+    }
+  }
+  Serial.println(count);
+  delay(1000);
+}
